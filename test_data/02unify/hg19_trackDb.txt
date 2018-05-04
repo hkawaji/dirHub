@@ -1,0 +1,588 @@
+
+track GM12878_CAGE.st
+shortLabel GM12878_CAGE
+longLabel GM12878_CAGE
+superTrack on
+visibility pack
+
+	track GM12878_CAGE.st|rep1.mw
+	shortLabel rep1
+	longLabel GM12878_CAGE_rep1
+	container multiWig
+	type bigWig
+	aggregate transparentOverlay
+	showSubtrackColorOnUi on
+	parent GM12878_CAGE.st
+
+		track GM12878_CAGE.st|rep1.mw|CAGE_GM12878_biol_rep1.fwd.bw
+		shortLabel CAGE_GM12878_biol_rep1.fwd
+		longLabel GM12878_CAGE_rep1_CAGE_GM12878_biol_rep1.fwd
+		type bigWig
+		bigDataUrl ./hg19/GM12878_CAGE.st/rep1.mw/CAGE_GM12878_biol_rep1.fwd.bw
+		autoScale on
+		parent GM12878_CAGE.st|rep1.mw
+		color 255,0,0
+		maxHeightPixels 31:31:7
+		visibility full
+
+
+
+		track GM12878_CAGE.st|rep1.mw|CAGE_GM12878_biol_rep1.rev.bw
+		shortLabel CAGE_GM12878_biol_rep1.rev
+		longLabel GM12878_CAGE_rep1_CAGE_GM12878_biol_rep1.rev
+		type bigWig
+		bigDataUrl ./hg19/GM12878_CAGE.st/rep1.mw/CAGE_GM12878_biol_rep1.rev.bw
+		autoScale on
+		parent GM12878_CAGE.st|rep1.mw
+		color 255,0,0
+		maxHeightPixels 31:31:7
+		visibility full
+
+
+
+
+
+	track GM12878_CAGE.st|rep2.mw
+	shortLabel rep2
+	longLabel GM12878_CAGE_rep2
+	container multiWig
+	type bigWig
+	aggregate transparentOverlay
+	showSubtrackColorOnUi on
+	parent GM12878_CAGE.st
+
+		track GM12878_CAGE.st|rep2.mw|CAGE_GM12878_biol_rep2.fwd.bw
+		shortLabel CAGE_GM12878_biol_rep2.fwd
+		longLabel GM12878_CAGE_rep2_CAGE_GM12878_biol_rep2.fwd
+		type bigWig
+		bigDataUrl ./hg19/GM12878_CAGE.st/rep2.mw/CAGE_GM12878_biol_rep2.fwd.bw
+		autoScale on
+		parent GM12878_CAGE.st|rep2.mw
+		color 255,0,0
+		maxHeightPixels 31:31:7
+		visibility full
+
+
+
+		track GM12878_CAGE.st|rep2.mw|CAGE_GM12878_biol_rep2.rev.bw
+		shortLabel CAGE_GM12878_biol_rep2.rev
+		longLabel GM12878_CAGE_rep2_CAGE_GM12878_biol_rep2.rev
+		type bigWig
+		bigDataUrl ./hg19/GM12878_CAGE.st/rep2.mw/CAGE_GM12878_biol_rep2.rev.bw
+		autoScale on
+		parent GM12878_CAGE.st|rep2.mw
+		color 255,0,0
+		maxHeightPixels 31:31:7
+		visibility full
+
+
+
+
+
+	track GM12878_CAGE.st|rep3.mw
+	shortLabel rep3
+	longLabel GM12878_CAGE_rep3
+	container multiWig
+	type bigWig
+	aggregate transparentOverlay
+	showSubtrackColorOnUi on
+	parent GM12878_CAGE.st
+
+		track GM12878_CAGE.st|rep3.mw|CAGE_GM12878_biol_rep3.fwd.bw
+		shortLabel CAGE_GM12878_biol_rep3.fwd
+		longLabel GM12878_CAGE_rep3_CAGE_GM12878_biol_rep3.fwd
+		type bigWig
+		bigDataUrl ./hg19/GM12878_CAGE.st/rep3.mw/CAGE_GM12878_biol_rep3.fwd.bw
+		autoScale on
+		parent GM12878_CAGE.st|rep3.mw
+		color 255,0,0
+		maxHeightPixels 31:31:7
+		visibility full
+
+
+
+		track GM12878_CAGE.st|rep3.mw|CAGE_GM12878_biol_rep3.rev.bw
+		shortLabel CAGE_GM12878_biol_rep3.rev
+		longLabel GM12878_CAGE_rep3_CAGE_GM12878_biol_rep3.rev
+		type bigWig
+		bigDataUrl ./hg19/GM12878_CAGE.st/rep3.mw/CAGE_GM12878_biol_rep3.rev.bw
+		autoScale on
+		parent GM12878_CAGE.st|rep3.mw
+		color 255,0,0
+		maxHeightPixels 31:31:7
+		visibility full
+
+
+
+
+
+
+
+track GM12878_TFpeak.st
+shortLabel GM12878_TFpeak
+longLabel GM12878_TFpeak
+superTrack on
+visibility pack
+
+	track GM12878_TFpeak.st|JUND.cp
+	shortLabel JUND
+	longLabel GM12878_TFpeak_JUND
+	type bigBed
+	compositeTrack on
+	parent GM12878_TFpeak.st
+
+		track GM12878_TFpeak.st|JUND.cp|SRX082162.bb
+		shortLabel SRX082162
+		longLabel GM12878_TFpeak_JUND_SRX082162
+		type bigBed
+		bigDataUrl ./hg19/GM12878_TFpeak.st/JUND.cp/SRX082162.bb
+		parent GM12878_TFpeak.st|JUND.cp on
+		url http://chip-atlas.org/
+		color 0,0,255
+		visibility pack
+
+
+
+		track GM12878_TFpeak.st|JUND.cp|SRX150620.bb
+		shortLabel SRX150620
+		longLabel GM12878_TFpeak_JUND_SRX150620
+		type bigBed
+		bigDataUrl ./hg19/GM12878_TFpeak.st/JUND.cp/SRX150620.bb
+		parent GM12878_TFpeak.st|JUND.cp on
+		url http://chip-atlas.org/
+		color 0,0,255
+		visibility pack
+
+
+
+		track GM12878_TFpeak.st|JUND.cp|SRX186639.bb
+		shortLabel SRX186639
+		longLabel GM12878_TFpeak_JUND_SRX186639
+		type bigBed
+		bigDataUrl ./hg19/GM12878_TFpeak.st/JUND.cp/SRX186639.bb
+		parent GM12878_TFpeak.st|JUND.cp on
+		url http://chip-atlas.org/
+		color 0,0,255
+		visibility pack
+
+
+
+
+
+	track GM12878_TFpeak.st|MAX.cp
+	shortLabel MAX
+	longLabel GM12878_TFpeak_MAX
+	type bigBed
+	compositeTrack on
+	parent GM12878_TFpeak.st
+
+		track GM12878_TFpeak.st|MAX.cp|SRX082164.bb
+		shortLabel SRX082164
+		longLabel GM12878_TFpeak_MAX_SRX082164
+		type bigBed
+		bigDataUrl ./hg19/GM12878_TFpeak.st/MAX.cp/SRX082164.bb
+		parent GM12878_TFpeak.st|MAX.cp on
+		url http://chip-atlas.org/
+		color 0,0,255
+		visibility pack
+
+
+
+		track GM12878_TFpeak.st|MAX.cp|SRX150597.bb
+		shortLabel SRX150597
+		longLabel GM12878_TFpeak_MAX_SRX150597
+		type bigBed
+		bigDataUrl ./hg19/GM12878_TFpeak.st/MAX.cp/SRX150597.bb
+		parent GM12878_TFpeak.st|MAX.cp on
+		url http://chip-atlas.org/
+		color 0,0,255
+		visibility pack
+
+
+
+
+
+
+
+track GM12878_TFsignal.st
+shortLabel GM12878_TFsignal
+longLabel GM12878_TFsignal
+superTrack on
+visibility pack
+
+	track GM12878_TFsignal.st|JUND.mw
+	shortLabel JUND
+	longLabel GM12878_TFsignal_JUND
+	container multiWig
+	type bigWig
+	aggregate transparentOverlay
+	showSubtrackColorOnUi on
+	parent GM12878_TFsignal.st
+
+		track GM12878_TFsignal.st|JUND.mw|SRX082162.bw
+		shortLabel SRX082162
+		longLabel GM12878_TFsignal_JUND_SRX082162
+		type bigWig
+		bigDataUrl ./hg19/GM12878_TFsignal.st/JUND.mw/SRX082162.bw
+		autoScale on
+		parent GM12878_TFsignal.st|JUND.mw
+		color 255,0,0
+		maxHeightPixels 31:31:7
+		visibility full
+
+
+
+		track GM12878_TFsignal.st|JUND.mw|SRX150620.bw
+		shortLabel SRX150620
+		longLabel GM12878_TFsignal_JUND_SRX150620
+		type bigWig
+		bigDataUrl ./hg19/GM12878_TFsignal.st/JUND.mw/SRX150620.bw
+		autoScale on
+		parent GM12878_TFsignal.st|JUND.mw
+		color 255,0,0
+		maxHeightPixels 31:31:7
+		visibility full
+
+
+
+		track GM12878_TFsignal.st|JUND.mw|SRX186639.bw
+		shortLabel SRX186639
+		longLabel GM12878_TFsignal_JUND_SRX186639
+		type bigWig
+		bigDataUrl ./hg19/GM12878_TFsignal.st/JUND.mw/SRX186639.bw
+		autoScale on
+		parent GM12878_TFsignal.st|JUND.mw
+		color 255,0,0
+		maxHeightPixels 31:31:7
+		visibility full
+
+
+
+
+
+	track GM12878_TFsignal.st|MAX.mw
+	shortLabel MAX
+	longLabel GM12878_TFsignal_MAX
+	container multiWig
+	type bigWig
+	aggregate transparentOverlay
+	showSubtrackColorOnUi on
+	parent GM12878_TFsignal.st
+
+		track GM12878_TFsignal.st|MAX.mw|SRX082164.bw
+		shortLabel SRX082164
+		longLabel GM12878_TFsignal_MAX_SRX082164
+		type bigWig
+		bigDataUrl ./hg19/GM12878_TFsignal.st/MAX.mw/SRX082164.bw
+		autoScale on
+		parent GM12878_TFsignal.st|MAX.mw
+		color 255,0,0
+		maxHeightPixels 31:31:7
+		visibility full
+
+
+
+		track GM12878_TFsignal.st|MAX.mw|SRX150597.bw
+		shortLabel SRX150597
+		longLabel GM12878_TFsignal_MAX_SRX150597
+		type bigWig
+		bigDataUrl ./hg19/GM12878_TFsignal.st/MAX.mw/SRX150597.bw
+		autoScale on
+		parent GM12878_TFsignal.st|MAX.mw
+		color 255,0,0
+		maxHeightPixels 31:31:7
+		visibility full
+
+
+
+
+
+
+
+track K-562_CAGE.st
+shortLabel K-562_CAGE
+longLabel K-562_CAGE
+superTrack on
+visibility pack
+
+	track K-562_CAGE.st|rep1.mw
+	shortLabel rep1
+	longLabel K-562_CAGE_rep1
+	container multiWig
+	type bigWig
+	aggregate transparentOverlay
+	showSubtrackColorOnUi on
+	parent K-562_CAGE.st
+
+		track K-562_CAGE.st|rep1.mw|CAGE_K-562_biol_rep1.fwd.bw
+		shortLabel CAGE_K-562_biol_rep1.fwd
+		longLabel K-562_CAGE_rep1_CAGE_K-562_biol_rep1.fwd
+		type bigWig
+		bigDataUrl ./hg19/K-562_CAGE.st/rep1.mw/CAGE_K-562_biol_rep1.fwd.bw
+		autoScale on
+		parent K-562_CAGE.st|rep1.mw
+		color 255,0,0
+		maxHeightPixels 31:31:7
+		visibility full
+
+
+
+		track K-562_CAGE.st|rep1.mw|CAGE_K-562_biol_rep1.rev.bw
+		shortLabel CAGE_K-562_biol_rep1.rev
+		longLabel K-562_CAGE_rep1_CAGE_K-562_biol_rep1.rev
+		type bigWig
+		bigDataUrl ./hg19/K-562_CAGE.st/rep1.mw/CAGE_K-562_biol_rep1.rev.bw
+		autoScale on
+		parent K-562_CAGE.st|rep1.mw
+		color 255,0,0
+		maxHeightPixels 31:31:7
+		visibility full
+
+
+
+
+
+	track K-562_CAGE.st|rep2.mw
+	shortLabel rep2
+	longLabel K-562_CAGE_rep2
+	container multiWig
+	type bigWig
+	aggregate transparentOverlay
+	showSubtrackColorOnUi on
+	parent K-562_CAGE.st
+
+		track K-562_CAGE.st|rep2.mw|CAGE_K-562_biol_rep2.fwd.bw
+		shortLabel CAGE_K-562_biol_rep2.fwd
+		longLabel K-562_CAGE_rep2_CAGE_K-562_biol_rep2.fwd
+		type bigWig
+		bigDataUrl ./hg19/K-562_CAGE.st/rep2.mw/CAGE_K-562_biol_rep2.fwd.bw
+		autoScale on
+		parent K-562_CAGE.st|rep2.mw
+		color 255,0,0
+		maxHeightPixels 31:31:7
+		visibility full
+
+
+
+		track K-562_CAGE.st|rep2.mw|CAGE_K-562_biol_rep2.rev.bw
+		shortLabel CAGE_K-562_biol_rep2.rev
+		longLabel K-562_CAGE_rep2_CAGE_K-562_biol_rep2.rev
+		type bigWig
+		bigDataUrl ./hg19/K-562_CAGE.st/rep2.mw/CAGE_K-562_biol_rep2.rev.bw
+		autoScale on
+		parent K-562_CAGE.st|rep2.mw
+		color 255,0,0
+		maxHeightPixels 31:31:7
+		visibility full
+
+
+
+
+
+	track K-562_CAGE.st|rep3.mw
+	shortLabel rep3
+	longLabel K-562_CAGE_rep3
+	container multiWig
+	type bigWig
+	aggregate transparentOverlay
+	showSubtrackColorOnUi on
+	parent K-562_CAGE.st
+
+		track K-562_CAGE.st|rep3.mw|CAGE_K-562_biol_rep3.fwd.bw
+		shortLabel CAGE_K-562_biol_rep3.fwd
+		longLabel K-562_CAGE_rep3_CAGE_K-562_biol_rep3.fwd
+		type bigWig
+		bigDataUrl ./hg19/K-562_CAGE.st/rep3.mw/CAGE_K-562_biol_rep3.fwd.bw
+		autoScale on
+		parent K-562_CAGE.st|rep3.mw
+		color 255,0,0
+		maxHeightPixels 31:31:7
+		visibility full
+
+
+
+		track K-562_CAGE.st|rep3.mw|CAGE_K-562_biol_rep3.rev.bw
+		shortLabel CAGE_K-562_biol_rep3.rev
+		longLabel K-562_CAGE_rep3_CAGE_K-562_biol_rep3.rev
+		type bigWig
+		bigDataUrl ./hg19/K-562_CAGE.st/rep3.mw/CAGE_K-562_biol_rep3.rev.bw
+		autoScale on
+		parent K-562_CAGE.st|rep3.mw
+		color 255,0,0
+		maxHeightPixels 31:31:7
+		visibility full
+
+
+
+
+
+
+
+track K-562_TFpeak.st
+shortLabel K-562_TFpeak
+longLabel K-562_TFpeak
+superTrack on
+visibility pack
+
+	track K-562_TFpeak.st|JUND.cp
+	shortLabel JUND
+	longLabel K-562_TFpeak_JUND
+	type bigBed
+	compositeTrack on
+	parent K-562_TFpeak.st
+
+		track K-562_TFpeak.st|JUND.cp|SRX092301.bb
+		shortLabel SRX092301
+		longLabel K-562_TFpeak_JUND_SRX092301
+		type bigBed
+		bigDataUrl ./hg19/K-562_TFpeak.st/JUND.cp/SRX092301.bb
+		parent K-562_TFpeak.st|JUND.cp on
+		url http://chip-atlas.org/
+		color 0,0,255
+		visibility pack
+
+
+
+		track K-562_TFpeak.st|JUND.cp|SRX150648.bb
+		shortLabel SRX150648
+		longLabel K-562_TFpeak_JUND_SRX150648
+		type bigBed
+		bigDataUrl ./hg19/K-562_TFpeak.st/JUND.cp/SRX150648.bb
+		parent K-562_TFpeak.st|JUND.cp on
+		url http://chip-atlas.org/
+		color 0,0,255
+		visibility pack
+
+
+
+
+
+	track K-562_TFpeak.st|MAX.cp
+	shortLabel MAX
+	longLabel K-562_TFpeak_MAX
+	type bigBed
+	compositeTrack on
+	parent K-562_TFpeak.st
+
+		track K-562_TFpeak.st|MAX.cp|SRX100568.bb
+		shortLabel SRX100568
+		longLabel K-562_TFpeak_MAX_SRX100568
+		type bigBed
+		bigDataUrl ./hg19/K-562_TFpeak.st/MAX.cp/SRX100568.bb
+		parent K-562_TFpeak.st|MAX.cp on
+		url http://chip-atlas.org/
+		color 0,0,255
+		visibility pack
+
+
+
+		track K-562_TFpeak.st|MAX.cp|SRX150424.bb
+		shortLabel SRX150424
+		longLabel K-562_TFpeak_MAX_SRX150424
+		type bigBed
+		bigDataUrl ./hg19/K-562_TFpeak.st/MAX.cp/SRX150424.bb
+		parent K-562_TFpeak.st|MAX.cp on
+		url http://chip-atlas.org/
+		color 0,0,255
+		visibility pack
+
+
+
+
+
+
+
+track K-562_TFsignal.st
+shortLabel K-562_TFsignal
+longLabel K-562_TFsignal
+superTrack on
+visibility pack
+
+	track K-562_TFsignal.st|JUND.mw
+	shortLabel JUND
+	longLabel K-562_TFsignal_JUND
+	container multiWig
+	type bigWig
+	aggregate transparentOverlay
+	showSubtrackColorOnUi on
+	parent K-562_TFsignal.st
+
+		track K-562_TFsignal.st|JUND.mw|SRX092301.bw
+		shortLabel SRX092301
+		longLabel K-562_TFsignal_JUND_SRX092301
+		type bigWig
+		bigDataUrl ./hg19/K-562_TFsignal.st/JUND.mw/SRX092301.bw
+		autoScale on
+		parent K-562_TFsignal.st|JUND.mw
+		color 255,0,0
+		maxHeightPixels 31:31:7
+		visibility full
+
+
+
+		track K-562_TFsignal.st|JUND.mw|SRX150648.bw
+		shortLabel SRX150648
+		longLabel K-562_TFsignal_JUND_SRX150648
+		type bigWig
+		bigDataUrl ./hg19/K-562_TFsignal.st/JUND.mw/SRX150648.bw
+		autoScale on
+		parent K-562_TFsignal.st|JUND.mw
+		color 255,0,0
+		maxHeightPixels 31:31:7
+		visibility full
+
+
+
+
+
+	track K-562_TFsignal.st|MAX.mw
+	shortLabel MAX
+	longLabel K-562_TFsignal_MAX
+	container multiWig
+	type bigWig
+	aggregate transparentOverlay
+	showSubtrackColorOnUi on
+	parent K-562_TFsignal.st
+
+		track K-562_TFsignal.st|MAX.mw|SRX100568.bw
+		shortLabel SRX100568
+		longLabel K-562_TFsignal_MAX_SRX100568
+		type bigWig
+		bigDataUrl ./hg19/K-562_TFsignal.st/MAX.mw/SRX100568.bw
+		autoScale on
+		parent K-562_TFsignal.st|MAX.mw
+		color 255,0,0
+		maxHeightPixels 31:31:7
+		visibility full
+
+
+
+		track K-562_TFsignal.st|MAX.mw|SRX150424.bw
+		shortLabel SRX150424
+		longLabel K-562_TFsignal_MAX_SRX150424
+		type bigWig
+		bigDataUrl ./hg19/K-562_TFsignal.st/MAX.mw/SRX150424.bw
+		autoScale on
+		parent K-562_TFsignal.st|MAX.mw
+		color 255,0,0
+		maxHeightPixels 31:31:7
+		visibility full
+
+
+
+		track K-562_TFsignal.st|MAX.mw|SRX150618.bw
+		shortLabel SRX150618
+		longLabel K-562_TFsignal_MAX_SRX150618
+		type bigWig
+		bigDataUrl ./hg19/K-562_TFsignal.st/MAX.mw/SRX150618.bw
+		autoScale on
+		parent K-562_TFsignal.st|MAX.mw
+		color 255,0,0
+		maxHeightPixels 31:31:7
+		visibility full
+
+
+
+
+
+

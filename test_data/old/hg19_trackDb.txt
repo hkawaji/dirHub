@@ -1,0 +1,203 @@
+
+track CAGE
+shortLabel CAGE
+longLabel CAGE
+superTrack on
+visibility pack
+
+	track CAGE|00Regulatory
+	shortLabel 00Regulatory
+	longLabel CAGE|00Regulatory
+	type bigBed
+	compositeTrack on
+	parent CAGE
+	visibility pack
+
+		track CAGE|00Regulatory|enhancer
+		shortLabel enhancer
+		longLabel CAGE|00Regulatory|enhancer
+		type bigBed
+		bigDataUrl ./hg19/CAGE.st/00Regulatory.ct/enhancer.bb
+		parent CAGE|00Regulatory on
+		itemRgb true
+		urls experimentId="http://chip-atlas.org/view?id=$$"
+		visibility pack
+		scoreFilter 0
+		scoreFilterLimits 0:1000
+
+
+
+		track CAGE|00Regulatory|tss_peaks
+		shortLabel tss_peaks
+		longLabel CAGE|00Regulatory|tss_peaks
+		type bigBed 6
+		bigDataUrl ./hg19/CAGE.st/00Regulatory.ct/tss_peaks.bb
+		parent CAGE|00Regulatory on
+		itemRgb off
+		urls experimentId="http://chip-atlas.org/view?id=$$"
+		visibility pack
+		scoreFilter 0
+		scoreFilterLimits 0:1000
+		colorByStrand 255,0,0 0,0,255
+
+
+
+
+
+	track CAGE|CD14+MonoD1
+	shortLabel CD14+MonoD1
+	longLabel CAGE|CD14+MonoD1
+	container multiWig
+	type bigWig
+	aggregate transparentOverlay
+	showSubtrackColorOnUi on
+	parent CAGE
+
+		track CAGE|CD14+MonoD1|CD14+MonoD1.fwd
+		shortLabel CD14+MonoD1.fwd
+		longLabel CAGE|CD14+MonoD1|CD14+MonoD1.fwd
+		type bigWig
+		bigDataUrl ./hg19/CAGE.st/CD14+MonoD1.mw/CD14+MonoD1.fwd.bw
+		autoScale on
+		color 255,0,0
+		parent CAGE|CD14+MonoD1
+		maxHeightPixels 31:31:7
+
+
+
+		track CAGE|CD14+MonoD1|CD14+MonoD1.rev
+		shortLabel CD14+MonoD1.rev
+		longLabel CAGE|CD14+MonoD1|CD14+MonoD1.rev
+		type bigWig
+		bigDataUrl ./hg19/CAGE.st/CD14+MonoD1.mw/CD14+MonoD1.rev.bw
+		autoScale on
+		color 0,0,255
+		parent CAGE|CD14+MonoD1
+		maxHeightPixels 31:31:7
+
+
+
+
+
+	track CAGE|CD4+TcellsD1
+	shortLabel CD4+TcellsD1
+	longLabel CAGE|CD4+TcellsD1
+	container multiWig
+	type bigWig
+	aggregate transparentOverlay
+	showSubtrackColorOnUi on
+	parent CAGE
+
+		track CAGE|CD4+TcellsD1|CD4+TcellsD1.fwd
+		shortLabel CD4+TcellsD1.fwd
+		longLabel CAGE|CD4+TcellsD1|CD4+TcellsD1.fwd
+		type bigWig
+		bigDataUrl ./hg19/CAGE.st/CD4+TcellsD1.mw/CD4+TcellsD1.fwd.bw
+		autoScale on
+		color 255,0,0
+		parent CAGE|CD4+TcellsD1
+		maxHeightPixels 31:31:7
+
+
+
+		track CAGE|CD4+TcellsD1|CD4+TcellsD1.rev
+		shortLabel CD4+TcellsD1.rev
+		longLabel CAGE|CD4+TcellsD1|CD4+TcellsD1.rev
+		type bigWig
+		bigDataUrl ./hg19/CAGE.st/CD4+TcellsD1.mw/CD4+TcellsD1.rev.bw
+		autoScale on
+		color 0,0,255
+		parent CAGE|CD4+TcellsD1
+		maxHeightPixels 31:31:7
+
+
+
+
+
+	track CAGE|SMCaorticD0
+	shortLabel SMCaorticD0
+	longLabel CAGE|SMCaorticD0
+	container multiWig
+	type bigWig
+	aggregate transparentOverlay
+	showSubtrackColorOnUi on
+	parent CAGE
+
+		track CAGE|SMCaorticD0|SMCaorticD0.fwd
+		shortLabel SMCaorticD0.fwd
+		longLabel CAGE|SMCaorticD0|SMCaorticD0.fwd
+		type bigWig
+		bigDataUrl ./hg19/CAGE.st/SMCaorticD0.mw/SMCaorticD0.fwd.bw
+		autoScale on
+		color 255,0,0
+		parent CAGE|SMCaorticD0
+		maxHeightPixels 31:31:7
+
+
+
+		track CAGE|SMCaorticD0|SMCaorticD0.rev
+		shortLabel SMCaorticD0.rev
+		longLabel CAGE|SMCaorticD0|SMCaorticD0.rev
+		type bigWig
+		bigDataUrl ./hg19/CAGE.st/SMCaorticD0.mw/SMCaorticD0.rev.bw
+		autoScale on
+		color 0,0,255
+		parent CAGE|SMCaorticD0
+		maxHeightPixels 31:31:7
+
+
+
+
+
+
+
+track ChIP
+shortLabel ChIP
+longLabel ChIP
+type bigBed 9
+compositeTrack on
+visibility pack
+
+	track ChIP|CD4-Positive%20T-Lymphocytes
+	shortLabel CD4-Positive T-Lymphocytes
+	longLabel ChIP|CD4-Positive T-Lymphocytes
+	type bigBed 9
+	bigDataUrl ./hg19/ChIP.ct/CD4-Positive%2520T-Lymphocytes.bb
+	parent ChIP on
+	itemRgb true
+	urls experimentId="http://chip-atlas.org/view?id=$$"
+	visibility pack
+	scoreFilter 100
+	scoreFilterLimits 0:1000
+
+
+
+	track ChIP|Monocytes-CD14%2B
+	shortLabel Monocytes-CD14+
+	longLabel ChIP|Monocytes-CD14+
+	type bigBed 9
+	bigDataUrl ./hg19/ChIP.ct/Monocytes-CD14%252B.bb
+	parent ChIP on
+	itemRgb true
+	urls experimentId="http://chip-atlas.org/view?id=$$"
+	visibility pack
+	scoreFilter 100
+	scoreFilterLimits 0:1000
+
+
+
+	track ChIP|Myoblasts
+	shortLabel Myoblasts
+	longLabel ChIP|Myoblasts
+	type bigBed 9
+	bigDataUrl ./hg19/ChIP.ct/Myoblasts.bb
+	parent ChIP on
+	itemRgb true
+	urls experimentId="http://chip-atlas.org/view?id=$$"
+	visibility pack
+	scoreFilter 100
+	scoreFilterLimits 0:1000
+
+
+
+

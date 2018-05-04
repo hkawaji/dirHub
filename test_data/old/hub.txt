@@ -1,0 +1,6 @@
+
+hub user_test
+shortLabel test
+longLabel test
+genomesFile genomes.txt
+email user_test@example.com

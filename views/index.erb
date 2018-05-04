@@ -1,0 +1,64 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootflat/2.0.4/css/bootflat.css" />
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+
+  </head>
+  <body>
+
+    <div class="col-md-12" style="background-color: #F5F7FA">
+      <div class="col-md-12"> &nbsp; </div>
+      <h1> <a href="/"> dirHub </a> </h1>
+      A trackHub configurator with directory structure projection.
+      <div class="col-md-12"> &nbsp; </div>
+    </div>
+    <div class="col-md-12"> &nbsp; </div>
+
+
+    <div class="col-md-12">
+      <h4> Step 1) Prepare a directory including the data files  </h4>
+      <form class="form-search" action="/" method="post">
+      <div class="col-md-12">
+        <input type="text" name="url" class="form-control" value="<%= @params[:url] %>" placeholder="http://" />
+      </div>
+      <div class="col-md-12"> &nbsp; </div>
+
+      <h4> Step 2) Generate URL for 'hub.txt' by 
+        <button type="submit" class="btn btn-primary"> click </button>
+      </h4>
+      </form>
+      <div class="col-md-12"> &nbsp; </div>
+
+      <h4> Step 3) Paste the following URL to <a href="http://genome.ucsc.edu/cgi-bin/hgHubConnect">My Hubs</a> (or <a href="http://genome-asia.ucsc.edu/cgi-bin/hgHubConnect">here</a>) </h4>
+      <div class="col-md-12">
+        <ul class="list-group">
+        <li class="list-group-item">
+          <%=
+            if @params.has_key?(:url) && @params[:url] != ""
+              "<a href='" + @params[:hub_url] + "'> hub.txt </a>"
+            else
+              "<div style='color: silver'>not generated</div>"
+            end 
+          %>
+        </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-md-12"> &nbsp; </div>
+
+    <div class="col-md-12"> See details <a href="https://github.com/hkawaji/dirHub">here</a>, including how to run it on your local environment. </div>
+
+    <div class="col-md-12"> &nbsp; </div>
+    <div class="col-md-12"> &nbsp; </div>
+    <div class="col-md-12"> &nbsp; </div>
+    <div class="col-md-12" style="color: silver; font-size: small">
+      This software is written by Kawaji H.<br>
+      Copyright (c) 2018 RIKEN. Distributed under Apache License 2.0.
+    </div>
+</div>
+
+  </body>
+</html>
+

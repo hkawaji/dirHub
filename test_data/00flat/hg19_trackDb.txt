@@ -1,0 +1,270 @@
+
+track CAGE_GM12878_biol_rep1.fwd.bw
+shortLabel CAGE_GM12878_biol_rep1.fwd
+longLabel CAGE_GM12878_biol_rep1.fwd
+type bigWig
+bigDataUrl ./hg19/CAGE_GM12878_biol_rep1.fwd.bw
+autoScale on
+
+
+
+track CAGE_GM12878_biol_rep1.rev.bw
+shortLabel CAGE_GM12878_biol_rep1.rev
+longLabel CAGE_GM12878_biol_rep1.rev
+type bigWig
+bigDataUrl ./hg19/CAGE_GM12878_biol_rep1.rev.bw
+autoScale on
+
+
+
+track CAGE_GM12878_biol_rep2.fwd.bw
+shortLabel CAGE_GM12878_biol_rep2.fwd
+longLabel CAGE_GM12878_biol_rep2.fwd
+type bigWig
+bigDataUrl ./hg19/CAGE_GM12878_biol_rep2.fwd.bw
+autoScale on
+
+
+
+track CAGE_GM12878_biol_rep2.rev.bw
+shortLabel CAGE_GM12878_biol_rep2.rev
+longLabel CAGE_GM12878_biol_rep2.rev
+type bigWig
+bigDataUrl ./hg19/CAGE_GM12878_biol_rep2.rev.bw
+autoScale on
+
+
+
+track CAGE_GM12878_biol_rep3.fwd.bw
+shortLabel CAGE_GM12878_biol_rep3.fwd
+longLabel CAGE_GM12878_biol_rep3.fwd
+type bigWig
+bigDataUrl ./hg19/CAGE_GM12878_biol_rep3.fwd.bw
+autoScale on
+
+
+
+track CAGE_GM12878_biol_rep3.rev.bw
+shortLabel CAGE_GM12878_biol_rep3.rev
+longLabel CAGE_GM12878_biol_rep3.rev
+type bigWig
+bigDataUrl ./hg19/CAGE_GM12878_biol_rep3.rev.bw
+autoScale on
+
+
+
+track CAGE_K-562_biol_rep1.fwd.bw
+shortLabel CAGE_K-562_biol_rep1.fwd
+longLabel CAGE_K-562_biol_rep1.fwd
+type bigWig
+bigDataUrl ./hg19/CAGE_K-562_biol_rep1.fwd.bw
+autoScale on
+
+
+
+track CAGE_K-562_biol_rep1.rev.bw
+shortLabel CAGE_K-562_biol_rep1.rev
+longLabel CAGE_K-562_biol_rep1.rev
+type bigWig
+bigDataUrl ./hg19/CAGE_K-562_biol_rep1.rev.bw
+autoScale on
+
+
+
+track CAGE_K-562_biol_rep2.fwd.bw
+shortLabel CAGE_K-562_biol_rep2.fwd
+longLabel CAGE_K-562_biol_rep2.fwd
+type bigWig
+bigDataUrl ./hg19/CAGE_K-562_biol_rep2.fwd.bw
+autoScale on
+
+
+
+track CAGE_K-562_biol_rep2.rev.bw
+shortLabel CAGE_K-562_biol_rep2.rev
+longLabel CAGE_K-562_biol_rep2.rev
+type bigWig
+bigDataUrl ./hg19/CAGE_K-562_biol_rep2.rev.bw
+autoScale on
+
+
+
+track CAGE_K-562_biol_rep3.fwd.bw
+shortLabel CAGE_K-562_biol_rep3.fwd
+longLabel CAGE_K-562_biol_rep3.fwd
+type bigWig
+bigDataUrl ./hg19/CAGE_K-562_biol_rep3.fwd.bw
+autoScale on
+
+
+
+track CAGE_K-562_biol_rep3.rev.bw
+shortLabel CAGE_K-562_biol_rep3.rev
+longLabel CAGE_K-562_biol_rep3.rev
+type bigWig
+bigDataUrl ./hg19/CAGE_K-562_biol_rep3.rev.bw
+autoScale on
+
+
+
+track JUND_GM12878_SRX082162.bb
+shortLabel JUND_GM12878_SRX082162
+longLabel JUND_GM12878_SRX082162
+type bigBed
+bigDataUrl ./hg19/JUND_GM12878_SRX082162.bb
+
+
+
+track JUND_GM12878_SRX082162.bw
+shortLabel JUND_GM12878_SRX082162
+longLabel JUND_GM12878_SRX082162
+type bigWig
+bigDataUrl ./hg19/JUND_GM12878_SRX082162.bw
+autoScale on
+
+
+
+track JUND_GM12878_SRX150620.bb
+shortLabel JUND_GM12878_SRX150620
+longLabel JUND_GM12878_SRX150620
+type bigBed
+bigDataUrl ./hg19/JUND_GM12878_SRX150620.bb
+
+
+
+track JUND_GM12878_SRX150620.bw
+shortLabel JUND_GM12878_SRX150620
+longLabel JUND_GM12878_SRX150620
+type bigWig
+bigDataUrl ./hg19/JUND_GM12878_SRX150620.bw
+autoScale on
+
+
+
+track JUND_GM12878_SRX186639.bb
+shortLabel JUND_GM12878_SRX186639
+longLabel JUND_GM12878_SRX186639
+type bigBed
+bigDataUrl ./hg19/JUND_GM12878_SRX186639.bb
+
+
+
+track JUND_GM12878_SRX186639.bw
+shortLabel JUND_GM12878_SRX186639
+longLabel JUND_GM12878_SRX186639
+type bigWig
+bigDataUrl ./hg19/JUND_GM12878_SRX186639.bw
+autoScale on
+
+
+
+track JUND_K-562_SRX092301.bb
+shortLabel JUND_K-562_SRX092301
+longLabel JUND_K-562_SRX092301
+type bigBed
+bigDataUrl ./hg19/JUND_K-562_SRX092301.bb
+
+
+
+track JUND_K-562_SRX092301.bw
+shortLabel JUND_K-562_SRX092301
+longLabel JUND_K-562_SRX092301
+type bigWig
+bigDataUrl ./hg19/JUND_K-562_SRX092301.bw
+autoScale on
+
+
+
+track JUND_K-562_SRX150648.bb
+shortLabel JUND_K-562_SRX150648
+longLabel JUND_K-562_SRX150648
+type bigBed
+bigDataUrl ./hg19/JUND_K-562_SRX150648.bb
+
+
+
+track JUND_K-562_SRX150648.bw
+shortLabel JUND_K-562_SRX150648
+longLabel JUND_K-562_SRX150648
+type bigWig
+bigDataUrl ./hg19/JUND_K-562_SRX150648.bw
+autoScale on
+
+
+
+track MAX_GM12878_SRX082164.bb
+shortLabel MAX_GM12878_SRX082164
+longLabel MAX_GM12878_SRX082164
+type bigBed
+bigDataUrl ./hg19/MAX_GM12878_SRX082164.bb
+
+
+
+track MAX_GM12878_SRX082164.bw
+shortLabel MAX_GM12878_SRX082164
+longLabel MAX_GM12878_SRX082164
+type bigWig
+bigDataUrl ./hg19/MAX_GM12878_SRX082164.bw
+autoScale on
+
+
+
+track MAX_GM12878_SRX150597.bb
+shortLabel MAX_GM12878_SRX150597
+longLabel MAX_GM12878_SRX150597
+type bigBed
+bigDataUrl ./hg19/MAX_GM12878_SRX150597.bb
+
+
+
+track MAX_GM12878_SRX150597.bw
+shortLabel MAX_GM12878_SRX150597
+longLabel MAX_GM12878_SRX150597
+type bigWig
+bigDataUrl ./hg19/MAX_GM12878_SRX150597.bw
+autoScale on
+
+
+
+track MAX_K-562_SRX100568.bb
+shortLabel MAX_K-562_SRX100568
+longLabel MAX_K-562_SRX100568
+type bigBed
+bigDataUrl ./hg19/MAX_K-562_SRX100568.bb
+
+
+
+track MAX_K-562_SRX100568.bw
+shortLabel MAX_K-562_SRX100568
+longLabel MAX_K-562_SRX100568
+type bigWig
+bigDataUrl ./hg19/MAX_K-562_SRX100568.bw
+autoScale on
+
+
+
+track MAX_K-562_SRX150424.bb
+shortLabel MAX_K-562_SRX150424
+longLabel MAX_K-562_SRX150424
+type bigBed
+bigDataUrl ./hg19/MAX_K-562_SRX150424.bb
+
+
+
+track MAX_K-562_SRX150424.bw
+shortLabel MAX_K-562_SRX150424
+longLabel MAX_K-562_SRX150424
+type bigWig
+bigDataUrl ./hg19/MAX_K-562_SRX150424.bw
+autoScale on
+
+
+
+track MAX_K-562_SRX150618.bw
+shortLabel MAX_K-562_SRX150618
+longLabel MAX_K-562_SRX150618
+type bigWig
+bigDataUrl ./hg19/MAX_K-562_SRX150618.bw
+autoScale on
+
+

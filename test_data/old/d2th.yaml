@@ -1,0 +1,28 @@
+---
+Hub:
+  hub: d2th_test
+  email: d2th_test@example.com
+TrackBw:
+  maxHeightPixels: "31:31:7"
+TrackBb:
+  type: bigBed 9
+  itemRgb: on
+  urls: experimentId="http://chip-atlas.org/view?id=$$"
+  visibility: pack
+  scoreFilter: 100
+  scoreFilterLimits: 0:1000
+TrackCt:
+  visibility: pack
+TrackSt:
+  visibility: pack
+TrackName:
+  CAGE|00Regulatory|tss_peaks:
+    type: bigBed 6
+    visibility: pack
+    scoreFilter: 0
+    itemRgb: "off"
+    colorByStrand: "255,0,0 0,0,255"
+  CAGE|00Regulatory|enhancer:
+    type: bigBed
+    visibility: pack
+    scoreFilter: 0
