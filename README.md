@@ -2,7 +2,7 @@ dirHub
 ===
 A trackHub configurator with directory structure projection.
 
-dirHub is a too to assist configuration of [trackHub](https://genome.ucsc.edu/goldenpath/help/trackDb/trackDbHub.html) by mapping a directory structure of data files to a layer of tracks. Check [demo server](http://dirHub.herokuapp.com) on Heroku
+dirHub is a tool to assist configuration of [trackHub](https://genome.ucsc.edu/goldenpath/help/trackDb/trackDbHub.html) by mapping a directory structure of data files to a layer of tracks. Check [demo server](http://dirHub.herokuapp.com) on Heroku
 
 ***Note this is still under development (alpha ver.)***
 
