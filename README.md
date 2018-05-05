@@ -6,6 +6,16 @@ dirHub is a too to assist configuration of [trackHub](https://genome.ucsc.edu/go
 
 ***Note this is still under development (alpha ver.)***
 
+Supported file type
+---
+
+* bigBed (.bb)
+* bigWig (.bw)
+* superTrack (.st)
+* composite track (.cp)
+* multWig (.mw)
+
+
 Usage (web application)
 ---
 
@@ -32,8 +42,8 @@ Usage (command line tool)
 installation
 
 ```
-$ git clone ###
-$ cd ###
+$ git clone https://github.com/hkawaji/dirHub.git 
+$ cd dirHub
 ```
 
 
@@ -56,6 +66,9 @@ Requirements
 * ruby (tested in version 2.3)
 * trackHub compatible genome browser (tested on the UCSC Genome Browser / trackHub definition v2)
 
+Reference
+---
+* Kawaji H. "dirHub: a trackHub configurator with directory structure projection", bioRxiv 314807, doi: https://doi.org/10.1101/314807
 
 Author, copyright, and license
 ---
