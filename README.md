@@ -64,7 +64,12 @@ $ ${PROGRAM_DIR}/dirHub.rb --help
 Requirements
 ---
 * ruby (tested in version 2.3)
+
+To set up trackHub for your own purpose, you also need:
+
 * trackHub compatible genome browser (tested on the UCSC Genome Browser / trackHub definition v2)
+* a web serpver hosting the data files
+
 
 Reference
 ---
