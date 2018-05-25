@@ -182,6 +182,18 @@ class Track
       end
     end
 
+    if @user_attr.has_key?( "Suffix" ) then
+      @user_attr[ "Suffix" ].keys.each do |k|
+        pattern = sprintf( "%s$" , k )
+        if @conf[ "path" ].match( pattern ) then
+          buf = @user_attr[ "Suffix" ][ k ]
+          buf.keys.each do |str|
+            @lines[str.to_sym] = buf[str].to_s
+          end
+        end
+      end
+    end
+
     if @user_attr.has_key?( "TrackName" ) then
       if @user_attr[ "TrackName" ].has_key?( @lines[:track] ) then
         buf = @user_attr[ "TrackName" ][ @lines[:track] ]

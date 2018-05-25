@@ -3,15 +3,19 @@ Hub:
   hub: "dirHub_demo"
   email: "dirHub@example.com"
 TrackBw:
-  color: "255,0,0"
-  maxHeightPixels: "31:31:7"
+  maxHeightPixels: "127:50:7"
   visibility: full
 TrackBb:
   type: bigBed
   url: http://chip-atlas.org/
-  color: "0,0,255"
+  color: "60,200,200"
   visibility: pack
 TrackCt:
   visibility: pack
 TrackSt:
   visibility: pack
+Suffix:
+  .fwd.bw:
+    color: "255,0,0"
+  .rev.bw:
+    color: "0,0,255"
