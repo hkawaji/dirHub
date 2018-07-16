@@ -84,7 +84,7 @@ class Hub
     trackdb_files = print_trackDb( true )
     str = "\n"
     trackdb_files.keys.each do |f|
-      str += sprintf("genome %s\ntrackDb %s\n", trackdb_files[f][:assembly], f )
+      str += sprintf("genome %s\ntrackDb %s\n\n", trackdb_files[f][:assembly], f )
     end
 
     if ( dry_run == false ) then
