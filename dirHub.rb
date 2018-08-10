@@ -6,6 +6,8 @@ require 'cgi'
 require 'uri'
 require 'open-uri'
 require 'optparse'
+require 'digest'
+
 
 #
 # for Hub / Tracks
@@ -146,6 +148,10 @@ class Track
       suffix = File.extname( t )
       TrackHubUtil::Track_type_suffix.include?(suffix)
     }.join("|")
+    if tn.length >= 80
+      tn = Digest::MD5.hexdigest(tn)
+    end
+
 
     tn_no_suffix = @conf["path"].split(/\//).select{|t|
       suffix = File.extname( t )
