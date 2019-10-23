@@ -15,16 +15,23 @@ require 'digest'
 
 module TrackHubUtil
 
-  Track_type_suffix = [".bb", ".bw", ".st", ".cp", ".mw"]
+  Track_type_suffix = [".bb", ".bw", ".st", ".cp", ".mw", ".bam"]
 
   def get_trackDb( array , override_attr = {} , indent = 0 , user_attr = {})
     str = ""
+    twoBit = ""
     array.each do |ctt|
       t = create_track( ctt, override_attr , indent , user_attr )
-      next if t == "non track"
-      str += t.trackLines + "\n\n"
+      case t
+      when "non track"
+	next
+      when "twoBit"
+        twoBit = ctt["path"]
+      else 
+        str += t.trackLines + "\n\n"
+      end
     end
-    return str
+    return { :str => str , :twoBit => twoBit }
   end
 
 
@@ -34,6 +41,8 @@ module TrackHubUtil
       str = sprintf( "Track%s", suffix.sub(".","").capitalize )
       cls = eval str
       return cls.new( hash , override_attr , indent , user_attr )
+    elsif suffix == ".2bit"
+      return "twoBit"
     else
       return "non track"
     end
@@ -86,7 +95,11 @@ class Hub
     trackdb_files = print_trackDb( true )
     str = "\n"
     trackdb_files.keys.each do |f|
-      str += sprintf("genome %s\ntrackDb %s\n\n", trackdb_files[f][:assembly], f )
+      str += sprintf("genome %s\ntrackDb %s\n", trackdb_files[f][:assembly], f )
+      if trackdb_files[f][:twoBit] != ""
+        str += sprintf("twoBitPath %s\norganism %s\ndefaultPos chr1:1-2\n", trackdb_files[f][:twoBit], f.to_s)
+      end
+      str += "\n"
     end
 
     if ( dry_run == false ) then
@@ -103,7 +116,8 @@ class Hub
       next if ctt["contents"].class != Array
       next if ctt["contents"].length == 0
 
-      str = get_trackDb( ctt["contents"] , {} , 0 , @user_attr )
+      buf = get_trackDb( ctt["contents"] , {} , 0 , @user_attr )
+      str = buf[:str]
       g = File.basename( ctt["path"] )
       trackdb_file = sprintf("%s_trackDb.txt", g)
 
@@ -113,7 +127,7 @@ class Hub
         end
       end
 
-      trackdb_files[ trackdb_file ] = { :assembly => g, :content => str }
+      trackdb_files[ trackdb_file ] = { :assembly => g, :content => str , :twoBit => buf[:twoBit] }
     end
     return trackdb_files
   end
@@ -227,6 +241,16 @@ class Track
 end
 
 
+
+class TrackBam < Track
+  def _extra_lines
+    @lines[:type] = "bam"
+    @lines[:bigDataUrl] = @conf["path"]
+  end
+end
+
+
+
 class TrackBw < Track
   def _extra_lines
     @lines[:type] = "bigWig"
@@ -262,7 +286,7 @@ class TrackSt < Track
       { :parent => @lines[:track] },
       @indent + 1,
       @user_attr
-    )
+    )[:str]
   end
 end
 
@@ -284,7 +308,7 @@ class TrackCp < Track
       { :parent => @lines[:track] + " on" },
       @indent + 1,
       @user_attr
-    )
+    )[:str]
   end
 end
 
@@ -305,7 +329,7 @@ class TrackMw < Track
       { :parent => @lines[:track] },
       @indent + 1,
       @user_attr
-    )
+    )[:str]
   end
 end
 
@@ -318,7 +342,6 @@ module TrackFiles
 
   def self.retrieve_from_dir(path)
     files = Dir.entries(path)
-
     contents = []
     files.sort.each do |infile|
       next if infile == "." or infile == ".."
@@ -330,6 +353,8 @@ module TrackFiles
       when "file" , "link"
         suffix = File.extname( infile )
         if TrackHubUtil::Track_type_suffix.include?(suffix)
+          contents << { "path" => infile }
+	elsif suffix == ".2bit"
           contents << { "path" => infile }
         end
       else
