@@ -3,7 +3,7 @@ GEM
   specs:
     json (1.8.3)
     mustermann (1.0.2)
-    rack (2.0.4)
+    rack (2.0.8)
     rack-protection (2.0.1)
       rack
     sinatra (2.0.1)
