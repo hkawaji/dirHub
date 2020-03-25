@@ -63,7 +63,8 @@ class Hub
     @base_dir = "."
     @lines = {
       :hub => "test", :shortLabel => "test", :longLabel => "test",
-      :genomesFile => "genomes.txt", :email => "test@example.com"
+      :genomesFile => "genomes.txt", :email => "test@example.com",
+      :descriptionUrl => ""
     }
     @user_attr = user_attr
     override_with_user_attr
@@ -83,7 +84,7 @@ class Hub
 
   def print_hub( dry_run = false ) 
     str = "\n"
-    @lines.keys.each{|k| str += k.to_s + " " + @lines[k] + "\n"}
+    @lines.keys.each{|k| str += k.to_s + " " + @lines[k] + "\n" if @lines[k] != ""}
     if ( dry_run == false ) then
       File.open("#{@base_dir}/hub.txt","w"){|ofh| ofh.puts str}
     end
@@ -97,7 +98,7 @@ class Hub
     trackdb_files.keys.each do |f|
       str += sprintf("genome %s\ntrackDb %s\n", trackdb_files[f][:assembly], f )
       if trackdb_files[f][:twoBit] != ""
-        str += sprintf("twoBitPath %s\norganism %s\ndefaultPos chr1:1-2\n", trackdb_files[f][:twoBit], f.to_s)
+        str += sprintf("twoBitPath %s\norganism %s\ndefaultPos chr1:1-2\ndescription %s\n", trackdb_files[f][:twoBit], f.to_s, trackdb_files[f][:assembly] )
       end
       str += "\n"
     end
@@ -132,7 +133,6 @@ class Hub
     return trackdb_files
   end
 
-
 end
 
 
@@ -161,7 +161,7 @@ class Track
     tn = @conf["path"].split(/\//).select{|t|
       suffix = File.extname( t )
       TrackHubUtil::Track_type_suffix.include?(suffix)
-    }.join("|")
+    }.join("|").gsub(".","_")
     if tn.length >= 80
       tn = Digest::MD5.hexdigest(tn)
     end
