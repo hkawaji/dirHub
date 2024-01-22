@@ -15,7 +15,7 @@ require 'digest'
 
 module TrackHubUtil
 
-  Track_type_suffix = [".bb", ".bw", ".st", ".cp", ".mw", ".bam"]
+  Track_type_suffix = [".bb", ".bw", ".st", ".cp", ".mw", ".bam", ".vcf.gz"]
 
   def get_trackDb( array , override_attr = {} , indent = 0 , user_attr = {})
     str = ""
@@ -37,8 +37,11 @@ module TrackHubUtil
 
   def create_track( hash , override_attr = {} , indent = 0, user_attr = {})
     suffix = File.extname( hash["path"] )
+    suffix = File.extname( File.basename( hash["path"] , ".gz" ) ) + ".gz"  if suffix == ".gz"
+
     if Track_type_suffix.include?(suffix)
       str = sprintf( "Track%s", suffix.sub(".","").capitalize )
+      str = "TrackVcf" if suffix == ".vcf.gz"
       cls = eval str
       return cls.new( hash , override_attr , indent , user_attr )
     elsif suffix == ".2bit"
@@ -160,6 +163,7 @@ class Track
   def _init_lines
     tn = @conf["path"].split(/\//).select{|t|
       suffix = File.extname( t )
+      suffix = File.extname( File.basename( t , ".gz" ) ) + ".gz"  if suffix == ".gz"
       TrackHubUtil::Track_type_suffix.include?(suffix)
     }.join("|").gsub(".","_")
     if tn.length >= 80
@@ -169,15 +173,21 @@ class Track
 
     tn_no_suffix = @conf["path"].split(/\//).select{|t|
       suffix = File.extname( t )
+      suffix = File.extname( File.basename( t , ".gz" ) ) + ".gz"  if suffix == ".gz"
       TrackHubUtil::Track_type_suffix.include?(suffix)
     }.collect{|t|
       suffix = File.extname( t )
+      suffix = File.extname( File.basename( t , ".gz" ) ) + ".gz"  if suffix == ".gz"
       File.basename( t, suffix )
     }.join("_")
 
     suffix = File.extname( @conf["path"] )
-    sl = URI.unescape( File.basename( @conf["path"] , suffix ) )
-    ll = URI.unescape( tn_no_suffix )
+    suffix = File.extname( File.basename( @conf["path"] , ".gz" ) ) + ".gz"  if suffix == ".gz"
+
+    #sl = URI.unescape( File.basename( @conf["path"] , suffix ) )
+    #ll = URI.unescape( tn_no_suffix )
+    sl = CGI.unescape( File.basename( @conf["path"] , suffix ) )
+    ll = CGI.unescape( tn_no_suffix )
     @lines = { :track => tn, :shortLabel => sl, :longLabel => ll }
   end
 
@@ -246,6 +256,7 @@ class TrackBam < Track
   def _extra_lines
     @lines[:type] = "bam"
     @lines[:bigDataUrl] = @conf["path"]
+    @lines[:bigDataUrl].sub!(/^\.\//,'')
   end
 end
 
@@ -255,6 +266,7 @@ class TrackBw < Track
   def _extra_lines
     @lines[:type] = "bigWig"
     @lines[:bigDataUrl] = @conf["path"]
+    @lines[:bigDataUrl].sub!(/^\.\//,'')
     @lines[:autoScale] = "on"
     if @override_attr.has_key?(:parent)
       tmp = @override_attr[:parent] + "|" + @override_attr[:parent].split(/\|/).last
@@ -269,6 +281,15 @@ class TrackBb < Track
   def _extra_lines
     @lines[:type] = "bigBed"
     @lines[:bigDataUrl] = @conf["path"]
+    @lines[:bigDataUrl].sub!(/^\.\//,'')
+  end
+end
+
+class TrackVcf < Track
+  def _extra_lines
+    @lines[:type] = "vcfTabix"
+    @lines[:bigDataUrl] = @conf["path"]
+    @lines[:bigDataUrl].sub!(/^\.\//,'')
   end
 end
 
@@ -305,7 +326,7 @@ class TrackCp < Track
     return "" unless @conf.keys.include?("contents")
     get_trackDb(
       @conf["contents"] ,
-      { :parent => @lines[:track] + " on" },
+      { :parent => @lines[:track] + " off" },
       @indent + 1,
       @user_attr
     )[:str]
@@ -346,12 +367,16 @@ module TrackFiles
     files.sort.each do |infile|
       next if infile == "." or infile == ".."
       infile = path + "/" + infile
+      # newly added
+      infile.sub!(/^\.\//,'')
       ft = File::ftype(infile)
       case ft
       when "directory"
         contents << retrieve_from_dir(infile)
       when "file" , "link"
         suffix = File.extname( infile )
+        suffix = File.extname( File.basename( infile , ".gz" ) ) + ".gz"  if suffix == ".gz"
+
         if TrackHubUtil::Track_type_suffix.include?(suffix)
           contents << { "path" => infile }
 	elsif suffix == ".2bit"
@@ -387,7 +412,7 @@ module TrackFiles
     files.sort.each do |infile|
       if infile.end_with?("/") then
         contents << retrieve_from_url(url + infile)
-      elsif infile.match(/.bw$|.bb$/) then
+      elsif infile.match(/.bw$|.bb$|.vcf.gz$/) then
         contents << { "path" => url + infile }
       else
         STDERR.puts "Warning: unprocessed file #{infile}"
@@ -494,7 +519,6 @@ but not the track types below yet:
 * bam
 * cram
 * halSnake
-* vcfTabix
 
 
 Directory structure mapping to track hub
