@@ -15,11 +15,12 @@ require 'digest'
 
 module TrackHubUtil
 
-  Track_type_suffix = [".bb", ".bw", ".st", ".cp", ".mw", ".bam", ".vcf.gz"]
+  Track_type_suffix = [".bb", ".bw", ".st", ".cp", ".mw", ".bam"]
 
   def get_trackDb( array , override_attr = {} , indent = 0 , user_attr = {})
     str = ""
     twoBit = ""
+    chromAlias = ""
     array.each do |ctt|
       t = create_track( ctt, override_attr , indent , user_attr )
       case t
@@ -27,25 +28,26 @@ module TrackHubUtil
 	next
       when "twoBit"
         twoBit = ctt["path"]
+      when "chromAlias"
+        chromAlias = ctt["path"]
       else 
         str += t.trackLines + "\n\n"
       end
     end
-    return { :str => str , :twoBit => twoBit }
+    return { :str => str , :twoBit => twoBit , :chromAlias => chromAlias }
   end
 
 
   def create_track( hash , override_attr = {} , indent = 0, user_attr = {})
     suffix = File.extname( hash["path"] )
-    suffix = File.extname( File.basename( hash["path"] , ".gz" ) ) + ".gz"  if suffix == ".gz"
-
     if Track_type_suffix.include?(suffix)
       str = sprintf( "Track%s", suffix.sub(".","").capitalize )
-      str = "TrackVcf" if suffix == ".vcf.gz"
       cls = eval str
       return cls.new( hash , override_attr , indent , user_attr )
     elsif suffix == ".2bit"
       return "twoBit"
+    elsif suffix == ".chromAlias"
+      return "chromAlias"
     else
       return "non track"
     end
@@ -100,9 +102,14 @@ class Hub
     str = "\n"
     trackdb_files.keys.each do |f|
       str += sprintf("genome %s\ntrackDb %s\n", trackdb_files[f][:assembly], f )
+
       if trackdb_files[f][:twoBit] != ""
         str += sprintf("twoBitPath %s\norganism %s\ndefaultPos chr1:1-2\ndescription %s\n", trackdb_files[f][:twoBit], f.to_s, trackdb_files[f][:assembly] )
+        if trackdb_files[f][:chromAlias] != ""
+          str += sprintf("chromAlias %s\n", trackdb_files[f][:chromAlias] )
+        end
       end
+
       str += "\n"
     end
 
@@ -131,7 +138,7 @@ class Hub
         end
       end
 
-      trackdb_files[ trackdb_file ] = { :assembly => g, :content => str , :twoBit => buf[:twoBit] }
+      trackdb_files[ trackdb_file ] = { :assembly => g, :content => str , :twoBit => buf[:twoBit] , :chromAlias => buf[:chromAlias] }
     end
     return trackdb_files
   end
@@ -163,7 +170,6 @@ class Track
   def _init_lines
     tn = @conf["path"].split(/\//).select{|t|
       suffix = File.extname( t )
-      suffix = File.extname( File.basename( t , ".gz" ) ) + ".gz"  if suffix == ".gz"
       TrackHubUtil::Track_type_suffix.include?(suffix)
     }.join("|").gsub(".","_")
     if tn.length >= 80
@@ -173,19 +179,13 @@ class Track
 
     tn_no_suffix = @conf["path"].split(/\//).select{|t|
       suffix = File.extname( t )
-      suffix = File.extname( File.basename( t , ".gz" ) ) + ".gz"  if suffix == ".gz"
       TrackHubUtil::Track_type_suffix.include?(suffix)
     }.collect{|t|
       suffix = File.extname( t )
-      suffix = File.extname( File.basename( t , ".gz" ) ) + ".gz"  if suffix == ".gz"
       File.basename( t, suffix )
     }.join("_")
 
     suffix = File.extname( @conf["path"] )
-    suffix = File.extname( File.basename( @conf["path"] , ".gz" ) ) + ".gz"  if suffix == ".gz"
-
-    #sl = URI.unescape( File.basename( @conf["path"] , suffix ) )
-    #ll = URI.unescape( tn_no_suffix )
     sl = CGI.unescape( File.basename( @conf["path"] , suffix ) )
     ll = CGI.unescape( tn_no_suffix )
     @lines = { :track => tn, :shortLabel => sl, :longLabel => ll }
@@ -285,14 +285,6 @@ class TrackBb < Track
   end
 end
 
-class TrackVcf < Track
-  def _extra_lines
-    @lines[:type] = "vcfTabix"
-    @lines[:bigDataUrl] = @conf["path"]
-    @lines[:bigDataUrl].sub!(/^\.\//,'')
-  end
-end
-
 
 class TrackSt < Track
   def _extra_lines
@@ -326,7 +318,7 @@ class TrackCp < Track
     return "" unless @conf.keys.include?("contents")
     get_trackDb(
       @conf["contents"] ,
-      { :parent => @lines[:track] + " off" },
+      { :parent => @lines[:track] + " on" },
       @indent + 1,
       @user_attr
     )[:str]
@@ -375,11 +367,11 @@ module TrackFiles
         contents << retrieve_from_dir(infile)
       when "file" , "link"
         suffix = File.extname( infile )
-        suffix = File.extname( File.basename( infile , ".gz" ) ) + ".gz"  if suffix == ".gz"
-
         if TrackHubUtil::Track_type_suffix.include?(suffix)
           contents << { "path" => infile }
 	elsif suffix == ".2bit"
+          contents << { "path" => infile }
+	elsif suffix == ".chromAlias"
           contents << { "path" => infile }
         end
       else
@@ -412,7 +404,7 @@ module TrackFiles
     files.sort.each do |infile|
       if infile.end_with?("/") then
         contents << retrieve_from_url(url + infile)
-      elsif infile.match(/.bw$|.bb$|.vcf.gz$/) then
+      elsif infile.match(/.bw$|.bb$/) then
         contents << { "path" => url + infile }
       else
         STDERR.puts "Warning: unprocessed file #{infile}"
@@ -519,6 +511,7 @@ but not the track types below yet:
 * bam
 * cram
 * halSnake
+* vcfTabix
 
 
 Directory structure mapping to track hub
